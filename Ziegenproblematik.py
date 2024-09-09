@@ -29,13 +29,13 @@ if tuerAuto == 3:
         print("Tür 2 ")
         tuerZiege += 2
 
-        
-print('Hinter Tuer', tuerZiege, 'befindet sich eine Ziege!')
+
+print('Hinter Tür', tuerZiege, 'befindet sich eine Ziege!')
 # Schritt 4: Kandidat waehlt erneut eine Tuer aus
-print('Willst du bei deiner Wahl bleiben oder umwaehlen?')
-tuerKandidat = int(input('Waehle eine Tuer (1, 2, 3): '))
+print('Willst du bei deiner Wahl bleiben oder umwählen?')
+tuerKandidat = int(input('Wähle eine Tür (1, 2, 3): '))
 # Schritt 5: Gewinn wird ermittelt
 if tuerAuto == tuerKandidat:
-    print('Du hast ein Auto gewonnen!')
+    print('Du hast ein Auto gewonnen! :) ')
 else:
-    print('Du hast eine Ziege gewonnen!')
+    print('Du hast verloren! :( ')
