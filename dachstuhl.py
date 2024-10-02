@@ -18,10 +18,12 @@ f = math.sqrt(f)
 
 print(f"Die länge der Dachsparrenbeträgt : " + str(round((f), 2))+ " m")
 """
+#Eingabefragen
 breite = float(input("Die Breite des Hauses : "  ))
 laenge = float(input("Die Länge des Hauses : "  ))
 hoehe = float(input("Die Höhe des Hauses (ohne Dachhöhe): "  ))
 dachhoehe = float(input("Die Dachhöhe des Hauses : "  ))
+
 
 #Rechnung
 ergebnis =((laenge * hoehe)*2) + ((breite*hoehe)*2) + (breite * dachhoehe) + math.sqrt(((((breite/2)*(breite/2))+math.sqrt(hoehe+hoehe)) * laenge)*2)
