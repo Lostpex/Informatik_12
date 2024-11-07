@@ -1,11 +1,10 @@
-from random import randint, seed
-seed()
+from random import randint
 
 simulationen = int(input("Wie viele simulationen möchtest du durchführen?: "))
 
 # Funktion einer einzigen Ziehung und eines Tipps
 def ziehung_und_tip():
-    
+    global ziehung, tip
     ziehung = []
     tip = []
     
@@ -39,5 +38,7 @@ ergebnisse = simulationen_haeufigkeit(simulationen)
 
 #Ergebnisse
 print("Anzahl der Übereinstimmungen: " + str(ziehung_und_tip()))
+print(ziehung)
+print(tip)
 print("Häufigkeitsliste für Treffer von 0 bis 6:")
 print(ergebnisse)
