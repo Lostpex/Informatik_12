@@ -3,6 +3,7 @@ class Bankkonto(object):
         self.kontonummer = kontonummer
         self.besitzer = besitzer
         self.__kontostand = kontostand
+        self.geldbörse = 0
         
     def einzahlen(self, betrag):
         self.__kontostand = self.__kontostand + betrag
@@ -15,5 +16,3 @@ class Bankkonto(object):
             
     def get_Kontostand(self):
         return self.__kontostand
-        
-        
