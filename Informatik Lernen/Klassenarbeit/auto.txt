@@ -1,0 +1,100 @@
+DELAY 2000
+STRING class Auto(object):
+ENTER
+STRING def __init__(self, kennzeichen, marke, topSpeed):
+ENTER
+STRING self.kennzeichen = kennzeichen
+ENTER
+STRING self.tempo = 0
+ENTER
+STRING self.marke = marke
+ENTER
+STRING self.__topSpeed = topSpeed
+ENTER
+STRING self.strecke = 0
+ENTER
+STRING self.fahrtzeit = 0
+ENTER
+BACKSPACE
+STRING def beschleunigen(self, kmh):
+ENTER
+STRING self.tempo = self.tempo + kmh
+ENTER
+STRING if self.tempo > self.__topSpeed:
+ENTER
+STRING self.tempo = self.__topSpeed
+ENTER
+
+BACKSPACE
+BACKSPACE
+STRING def bremsen(self, kmh):
+ENTER
+STRING self.tempo = self.tempo - kmh
+ENTER
+STRING if self.tempo < 0:
+ENTER
+STRING self.tempo = 0
+ENTER
+
+BACKSPACE
+BACKSPACE
+STRING def fahren(self, zeit):
+ENTER
+STRING self.strecke = self.strecke + self.tempo * zeit
+ENTER
+STRING self.fahrtzeit = self.fahrtzeit + zeit
+ENTER
+
+BACKSPACE
+
+STRING def tunen(self, topSpeed):
+ENTER
+STRING self.__topSpeed = topSpeed
+ENTER
+
+BACKSPACE
+
+STRING def get_topSpeed(self):
+ENTER
+STRING return self.__topSpeed
+ENTER
+
+BACKSPACE
+BACKSPACE
+STRING def set_topSpeed(self, topSpeed):
+ENTER
+STRING self.__topSpeed = topSpeed
+ENTER
+
+BACKSPACE
+BACKSPACE
+BACKSPACE
+ENTER
+ENTER
+STRING a1 = Auto("MYK-BD 28", "Renault", 199)
+ENTER
+STRING a2 = Auto("MYK-AW 28", "Dacia", 189)
+ENTER
+STRING a1.beschleunigen(100)
+ENTER
+STRING a1.fahren(1)
+ENTER
+STRING a1.bremsen(20)
+ENTER
+STRING a1.fahren(2)
+ENTER
+
+BACKSPACE
+STRING a1.bremsen(a1.tempo)
+ENTER
+STRING while a2.strecke < a1.strecke:
+ENTER
+STRING a2.beschleunigen(10)
+ENTER
+STRING a2.fahren(1)
+ENTER
+
+BACKSPACE
+STRING print(f"Auto 1 hat eine Strecke von {a1.strecke} km zurueckgelegt in {a1.fahrtzeit} h.")
+ENTER
+STRING print(f"Auto 2 hat eine Strecke von {a2.strecke} km zurueckgelegt in {a2.fahrtzeit} h.")
