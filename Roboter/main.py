@@ -46,17 +46,33 @@ class Welt(object):
         self.felderY = y
         self.ziegel =[]
 
+    # Erzeugung der Listen
+        l = []
+        for i in range(self.felderY):
+            m = []
+            for j in range(self.felderX):
+                m = m + [0]
+            l = l + [m]
+        self.ziegel = l
+
     def getFelderX(self):
         return self.felderX
-    
+
     def getFelderY(self):
         return self.felderY
-    
-    def incZigel(x,y):
-        return
-    def decZigel(x,y):
-        return
-    
 
+    def incZiegel(self, x, y):
+        self.ziegel[y][x] = self.ziegel[y][x] + 1
+
+    def decZiegel(self, x, y):
+        if self.ziegel[y][x] > 0:
+            self.ziegel[y][x] = self.ziegel[y][x] - 1
+
+    def getZiegel(self, x, y):
+        return self.ziegel[y][x]
+
+    def getAlleZiegel(self):
+        return self.ziegel
+    
 w = Welt(10,10)
 r1 = Roboter()
