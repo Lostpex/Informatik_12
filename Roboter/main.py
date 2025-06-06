@@ -1,3 +1,6 @@
+from TK import Tinker
+
+
 class Roboter(object):
     def __init__(self):
         self.x = 0
@@ -39,6 +42,26 @@ class Roboter(object):
         elif self.r == 'N':
             self.r = 'W'
 
+    def ziegelHinlegen(self):
+        if self.r == 'O' and self.x < self.w.getFelderX()-1:
+            self.w.incZiegel(self.x+1, self.y)
+        elif self.r == 'S' and self.y < self.w.getFelderY()-1:
+            self.w.incZiegel(self.x, self.y+1)
+        elif self.r == 'W' and self.x > 0:
+            self.w.incZiegel(self.x-1, self.y)
+        elif self.r == 'N' and self.y > 0:
+            self.w.incZiegel(self.x, self.y-1)
+
+    def ziegelAufheben(self):
+        if self.r == 'O' and self.x < self.w.getFelderX()-1:
+            self.w.decZiegel(self.x+1, self.y)
+        elif self.r == 'S' and self.y < self.w.getFelderY()-1:
+            self.w.decZiegel(self.x, self.y+1)
+        elif self.r == 'W' and self.x > 0:
+            self.w.decZiegel(self.x-1, self.y)
+        elif self.r == 'N' and self.y > 0:
+            self.w.decZiegel(self.x, self.y-1)
+
 
 class Welt(object):
     def __init__(self,x,y):
@@ -74,25 +97,6 @@ class Welt(object):
     def getAlleZiegel(self):
         return self.ziegel
     
-    def ziegelHinlegen(self):
-        if self.r == 'O' and self.x < self.w.getFelderX()-1:
-            self.w.incZiegel(self.x+1, self.y)
-        elif self.r == 'S' and self.y < self.w.getFelderY()-1:
-            self.w.incZiegel(self.x, self.y+1)
-        elif self.r == 'W' and self.x > 0:
-            self.w.incZiegel(self.x-1, self.y)
-        elif self.r == 'N' and self.y > 0:
-            self.w.incZiegel(self.x, self.y-1)
 
-    def ziegelAufheben(self):
-        if self.r == 'O' and self.x < self.w.getFelderX()-1:
-            self.w.decZiegel(self.x+1, self.y)
-        elif self.r == 'S' and self.y < self.w.getFelderY()-1:
-            self.w.decZiegel(self.x, self.y+1)
-        elif self.r == 'W' and self.x > 0:
-            self.w.decZiegel(self.x-1, self.y)
-        elif self.r == 'N' and self.y > 0:
-            self.w.decZiegel(self.x, self.y-1)
-    
 w = Welt(10,10)
 r1 = Roboter()
