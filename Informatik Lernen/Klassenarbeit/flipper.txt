@@ -1,0 +1,52 @@
+class Auto(object):
+    def __init__(self, kennzeichen, marke, topSpeed):
+        self.kennzeichen = kennzeichen
+        self.tempo = 0
+        self.marke = marke
+        self.__topSpeed = topSpeed
+        self.strecke = 0
+        self.fahrtzeit = 0
+
+    def beschleunigen(self, kmh):
+        self.tempo = self.tempo + kmh
+        if self.tempo > self.topSpeed:
+            self.tempo = self.topSpeed
+
+    def bremsen(self, kmh):
+        self.tempo = self.tempo - kmh
+        if self.tempo < 0:
+            self.tempo = 0
+
+    def fahren(self, zeit):
+        self.strecke = self.strecke + self.tempo * zeit
+        self.fahrtzeit = self.fahrtzeit + zeit
+
+    def tunen(self, topSpeed):
+        self.topSpeed = topSpeed
+
+    def get_topSpeed(self):
+        return self.__topSpeed
+    
+    def set_topSpeed(self, topSpeed):
+        self.__topSpeed = topSpeed
+
+
+from auto import Auto
+
+a1 = Auto("M-AB 123", "BMW", 250)
+a2 = Auto("M-XY 456", "Audi", 280)
+
+a1.beschleunigen(100)
+a1.fahren(1)
+a1.bremsen(20)
+a1.fahren(2)
+
+
+a1.bremsen(a1.tempo)
+while a2.strecke < a1.strecke:
+    a2.beschleunigen(10)
+    a2.fahren(1)
+
+#Ergebnis
+print(f"Auto 1 hat eine Strecke von {a1.strecke} km zurückgelegt in {a1.fahrtzeit} h zurückgelegt..")
+print(f"Auto 1 hat eine Strecke von {a2.strecke} km zurückgelegt in {a2.fahrtzeit} h zurückgelegt..")

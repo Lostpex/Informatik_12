@@ -1,0 +1,118 @@
+STRING class Parkplatz(object):
+ENTER
+STRING     def __init__(self, nummer, belegt):
+ENTER
+STRING         self.nummer = nummer
+ENTER
+STRING         self.belegt = bool(belegt)
+ENTER
+ENTER
+STRING     def  einparken(self):
+ENTER
+STRING         if not self.belegt:
+ENTER
+STRING             self.belegt = True
+ENTER
+STRING             print("Parkplatz ist jetzt belegt.")
+ENTER
+STRING             return True
+ENTER
+STRING         else:
+ENTER
+STRING             print("Parkplatz ist bereits belegt.")
+ENTER
+STRING             return False
+ENTER
+ENTER
+STRING     def  ausparken(self):
+ENTER
+STRING         if self.belegt:
+ENTER
+STRING             self.belegt = False
+ENTER
+STRING             print("Parkplatz ist jetzt frei.")
+ENTER
+STRING             return True
+ENTER
+STRING         else:
+ENTER
+STRING             print("Parkplatz ist bereits frei.")
+ENTER
+STRING             return False
+ENTER
+ENTER
+STRING     def status(self):
+ENTER
+STRING         if self.belegt:
+ENTER
+STRING             print("Parkplatz ist belegt.")
+ENTER
+STRING         else:
+ENTER
+STRING             print("Parkplatz ist frei.")
+ENTER
+ENTER
+ENTER
+STRING class Parkhaus(object):
+ENTER
+STRING     def __init__(self, anzahl):
+ENTER
+STRING         self.anzahl = anzahl
+ENTER
+STRING         self.liste = [Parkplatz(i + 1, False) for i in range(anzahl)]
+ENTER
+ENTER
+STRING     def zeige_freie_plaetze(self):
+ENTER
+STRING         for parkplatz in self.liste:
+ENTER
+STRING             print(f"Nummer = {parkplatz.nummer}, Belegt: {parkplatz.belegt}")
+ENTER
+ENTER
+STRING     def einparken(self):
+ENTER
+STRING         for parkplatz in self.liste:
+ENTER
+STRING             if parkplatz.belegt == False:
+ENTER
+STRING                 parkplatz.einparken()
+ENTER
+STRING                 return 
+ENTER
+ENTER
+STRING     def ausparken(self, nummer):
+ENTER
+STRING         for parkplatz in self.liste:
+ENTER
+STRING             if parkplatz.nummer == nummer:
+ENTER
+STRING                 parkplatz.ausparken()
+ENTER
+STRING                 return 
+ENTER
+ENTER
+STRING #####################################
+ENTER
+STRING # from myClasses import *  --> wird nicht verwendet
+ENTER
+STRING PH = Parkhaus(10)
+ENTER
+ENTER
+STRING PH.zeige_freie_plaetze()
+ENTER
+ENTER
+STRING PH.einparken()
+ENTER
+STRING PH.einparken()
+ENTER
+STRING PH.einparken()
+ENTER
+ENTER
+STRING PH.zeige_freie_plaetze()
+ENTER
+ENTER
+STRING PH.ausparken(2)
+ENTER
+ENTER
+STRING PH.zeige_freie_plaetze()
+ENTER
