@@ -100,3 +100,4 @@ class Welt(object):
 
 w = Welt(10,10)
 r1 = Roboter()
+
