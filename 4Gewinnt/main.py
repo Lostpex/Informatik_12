@@ -1,5 +1,4 @@
 from random import randint
-
 class Player(object):
     def __init__(self, name="", playerID="", gameMode=0):
         
